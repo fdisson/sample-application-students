@@ -12,3 +12,24 @@ before_install:
 # Run Unit Test and Integration Tests
 script:
   - mvn verify
+
+# Cache the .m2 folder to prevent redownloading dependencies on each build
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+
+# Environment variables are strings (double quotes)
+# Example:
+# - secure: "DpR1th9rZvLMX0......"
+env:
+  global:
+    - secure: "3dbfd3a1b82abf56a33f2190b3d79c202f4f504b"
+
+# The pipe (|) is useful to create multiline scripts
+script:
+  - |
+    mvn clean install sonar:sonar \
+    -Dsonar.projectKey=<SONAR_PROJECT_KEY> \
+    -Dsonar.organization=<SONAR_ORGANISATION_KEY> \
+    -Dsonar.host.url=https://sonarcloud.io \
+    -Dsonar.login=$SONAR_TOKEN
