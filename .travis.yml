@@ -29,8 +29,7 @@ env:
 script:
   - |
     mvn clean install sonar:sonar \
-    mvn sonar:sonar \
-    -Dsonar.projectKey=fdisson_sample-application-students \
-    -Dsonar.organization=fdisson-github \
-    -Dsonar.host.url=https://sonarcloud.io \
-    -Dsonar.login=3dbfd3a1b82abf56a33f2190b3d79c202f4f504b
+      -Dsonar.projectKey=fdisson_sample-application-students \
+      -Dsonar.organization=fdisson-github \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.login=3dbfd3a1b82abf56a33f2190b3d79c202f4f504b
