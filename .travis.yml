@@ -1,23 +1,6 @@
 language: java
 jdk: oraclejdk8
 
-#Define the services to use
-services:
-  - docker
-before_install:
-  - sudo service mysql stop
-  - docker pull takimatraining/devops-training-db
-  - docker run -d -p 127.0.0.1:3306:3306 takimatraining/devops-training-db
-
-# Run Unit Test and Integration Tests
-script:
-  - mvn verify
-
-# Cache the .m2 folder to prevent redownloading dependencies on each build
-cache:
-  directories:
-  - "$HOME/.m2/repository"
-
 # Environment variables are strings (double quotes)
 # Example:
 # - secure: "DpR1th9rZvLMX0......"
@@ -28,6 +11,30 @@ env:
     - secure: "pq9BgpBl4DP4kWKm946N87MDo+WBDh4g5oZAVE2tX1oJbt/4zoNUjH0ilHJOAMyCuMP+zdfbWbYOY/v+lj2hE6162Wv9q8HKwTM+Y6p1YABdIvqtHSbIjAR6KYAk/9z357izc5bNNb+3FenMIEQphr7PEGbWab+CgZLKHpFdGkDfSTUh9YxkwwGTZ1XkLt6aMKWRPYK1jxp2H/rDHZosalVwpdeIRST44Z4x01BROHJw11E24uHXglNPhME00TsSaikN5/TYvwEsnBky0EM2DiG+Bsm24itOokuXSbTrUJgcKyvG3CskjCVGYUYV9znd2KJZszfhz3I8W0hMLVe/BD68fseT/4E5qPZRTDFHv75+x/RBJn5ISP4VFNfFoE7r2jrgR8JiM3MFzN2s1xe0Ta803wcPhlfj0pdjZwOJzesrfc8G1CgVS7ILsL9ZdRza22WsyHtvTNXNjpr/RJcWc7g47YBMYLwLpjps2w9dlXXlpUNo5RPCwM2Kse1+jFbEparnRZnkF5nhALTYEKybssg0pEnUZEzTveT2Tu9YMvEbiR2YgpB+cArxSDT7FbDHkV9jf08ERIiP6OC/vu3f5aNC2nooYWO2yzbggRPEDmucbNdRQvN/YfT7Jpi0EkUSW8uf9SybdttX92XvXQNr8Jkw6iVPrRByGbksd4G3D1s="
     - secure: "FeE5pW7VE9Iu/QahHcBSJe/vBFalQ2uZaqFEJvEaZNH7XmdQtKAeur8aUYgpPtbTOAUe/AnWEZc43VErvO6UHT+Px3pjiIi5geUnDM11nb8NmcVIrDRO51AZcAHA9RqwuqlehOC0K0dvmwy5pvy5gnWgNyCIE6gmYoiekHAsQPg8GZXOX8KnrUxZMMq85tr/agr1xS7xEKp/VHfSX3Bxm2cyfD8VV0iA7tFcovDyt47uc+TJAEDF3JFgTcVmDP25ff8k2PSeTPXvUn7sqo4c9cxwY4W1WVhbLFCXOVYj2GVx9kl13ZrE11z9gLACahdqkJKT20D6DZWkYYf4/GVrn5i/XEKzzIyKgbALB0ZBZSaz6ctgD/IT5ibwc9lS3fFpoCYgmWSqDcx0F/jjcTPojT44SAlgq8UFz0ITPI8CafHFNVjG6QgYX5/9jS5MzL6OIg5Z+ZaQda0N4lcvb8vR5gMby1Yc2s68FoIRDCu6M+dGjTqT6EYrwxr9Qv6Rdsn0fKTZT5AYRMcBVf6uwVTOuJuS0KdIjuZPuViYuZ1GAFqCt9c1/XJLQ5rrVbXgbS3u/sjU/UYBqHR18YEjBNN0Fl4c44YrAU2P7u2zAKTesjPqkDh8NZSonTsPGoA2NGqX0nn9WLKfY5QZuGaPHdnpQEHPSX0KBIILd5cN6N1PDsE="
     - secure: "UYX6ZPv6Uv56ny3l9YDmforDirtTnRUMUr/SD5FGgGG/PRJYADHu/qm/JRtqxXB/r1xiNZsISQdkQmFcNp4FzS7TarC7qA++knidyJqZCGXaT447R72CIH4ntSb3RPBMS2FZNOu0LZhksBe6H7P8VyoY22uPfD7iKQ0cmwPxDkdj9wm+PekoFGcAxLgjlkmBiVjnL9FVyHp8PtoQvoRrCGtZ09lN0/afRzM+qmliebdIqlpQAmPfXTY9YqAFLHt5G0I8/fwucI4Bo/kgJetuB+nS65ldviL4HZAkCrFiehq5lx46nauXbJ73a7WiCaHKevHf1cFPTPNsJDCqBx1nC8VoCYutQJCXbPOUduLXVYL71zVTMBlchwchrnDfBXUk6VRb4db1f/Uo2gNKB9UhMaMrnNTqNPpjn9lRfi/AKsvOZescKFAMXKLPeDcdg4eYAt+Z7bSnI0Zx27vkPYiIY452O3Vcqj9Wf4ZJXHEgXDZFXRrraaSSZKUc6+x6jbN53nzr16zLLh7hRTB8J/Q06h3jrpQOtY2YHtSXgyV4mYem5TAdauRTnl3wAHIOG34P9t+VqlO6xzpnbFIMt2apCeyahTuEbm1f/4nO+dAtJxZOwIU7NZVl5BKObRKzzEWexxgM4xBsbzxZIcxJo3x1UYrDOFUKPr/vF9PBO2JW1Lc="
+
+#Define the services to use
+services:
+  - docker
+before_install:
+  - sudo service mysql stop
+  - docker pull takimatraining/devops-training-db
+  - docker run -d -p 127.0.0.1:3306:3306 takimatraining/devops-training-db
+  # Prepare deploy
+  - openssl aes-256-cbc -K $encrypted_xxxxxxx_key -iv $encrypted_xxxxxxxxxxx_iv
+    -in travis_deploy_rsa.enc -out ~\/.ssh/travis_deploy_rsa -d  # Généré par travis encrypt-file
+  - chmod 600 /tmp/travis_deploy_rsa
+  - eval "$(ssh-agent -s)"
+  - ssh-add /tmp/travis_deploy_rsa
+  - echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+# Run Unit Test and Integration Tests
+script:
+  - mvn verify
+
+# Cache the .m2 folder to prevent redownloading dependencies on each build
+cache:
+  directories:
+  - "$HOME/.m2/repository"
 
 # The pipe (|) is useful to create multiline scripts
 script:
@@ -52,3 +59,10 @@ after_success:
   - docker tag $IMAGE_NAME:$TRAVIS_COMMIT $IMAGE_NAME:$TAG
   # Push the tagged image to Docker Hub
   - docker push $IMAGE_NAME:$TAG
+
+# Deploy updated container over ssh
+deploy:
+  provider: script
+  script: ssh -i /tmp/travis_deploy_rsa $DEPLOY_USER@$SERVER_HOST "sudo docker pull $IMAGE_NAME:$TAG && sudo docker rm -f app || true && sudo docker run -d --network net -p 80:8080 --name app $IMAGE_NAME:$TAG"
+  on:
+    branch: master
