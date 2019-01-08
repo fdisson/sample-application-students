@@ -23,7 +23,7 @@ cache:
 # - secure: "DpR1th9rZvLMX0......"
 env:
   global:
-    - secure: "3dbfd3a1b82abf56a33f2190b3d79c202f4f504b"
+    - secure: "NYRfI6y1A+3eOaKPwH22bfDoKXbc5SChzesu8M3JToTz0QYWgIqsQEK39bp2FYXTZ8f3EO9aLwTWs8WRbj/6/lfQ4eiux8P4ROti0VUWx3It8EjatLnJkAwTBtao9JqnNMc8TL6ht3ZYUzCuJs0xiuUm3uQLrWFaCSZCctfpEj+Fg/9LG0CVSRB1mf5jj66e6l5t7MBtjBZCWzkEgb01hjRkYljsm0GHOeuNJa5JJQa1YIwt/CHxexSgdbmoTlhfyATw7T54OgEDEFttW+P/Wp0RQGEY1DOeoaL4VjI6kEPQEH9AUtmeJX/+fvA9c5i4r+p6p9PaudIB7ZjV985IVq/tCWBTIbPf8C8w7XaoFkWKD+VrRkhQ03dC0X7hrOYpRsf1m+tO44RZcLpdPZSdf6kG6O+tXff66RNTJko3nZrocHSAJSSjdc+AWVe6h1Hn5EkqA6K8/sxPyTPMbDhioUBj7hqpHOSuMRjDKz4ACnM04e8KxzFesNjdn9LFH/CfDChmKvkBn/KlXo4um3cGhBKivH9NsYbDI1CnRcYDA2Shs2gkUsZ8D4z5pygQ7IZgMK2BYXKnYnJBz5hEPc0fMIddtgKOhm1GOI4m33buL2dJVOn3VTLUgeJbbJK+z35cKPHUM4f0/HT6OjsnkqaSSloOJdhYGlaoCm5YnArwCYY="
 
 # The pipe (|) is useful to create multiline scripts
 script:
